@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information - SkinTone.ai</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="navbar">
+          <div class="logo">SkinTone.ai</div>
+          <nav>
+            <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('features') }}">Features</a></li>
+              <li><a href="{{ url_for('information') }}">Information</a></li>
+            </ul>
+          </nav>
+          <img class="logo" src="static/img/uny.png" width="50" height="50" />
+        </div>
+      </header>
+
+      <main>
+        <div class="content">
+          <h1>About SkinTone.ai</h1>
+          <p>
+            <strong>SkinTone.ai</strong> is an AI-powered application designed to help users classify their skin tone into four categories: <strong>Light</strong>, <strong>Mid Light</strong>, <strong>Dark</strong>, and
+            <strong>Mid Dark</strong>.
+          </p>
+          <p>The application uses a deep learning model trained on a curated dataset of images, ensuring accurate and reliable skin tone classification.</p>
+          <p>By understanding your skin tone, <strong>SkinTone.ai</strong> provides personalized color recommendations to help you choose outfits that complement your natural look and enhance your confidence.</p>
+
+          <h2>How It Works</h2>
+          <ul>
+            <li>Upload a photo or take a picture directly in the app.</li>
+            <li>The AI model analyzes the image and classifies your skin tone.</li>
+            <li>Receive outfit color suggestions tailored to your skin tone.</li>
+          </ul>
+
+          <h2>Benefits</h2>
+          <ul>
+            <li>Boosts confidence with personalized fashion tips.</li>
+            <li>Simple and easy-to-use interface.</li>
+            <li>Powered by advanced machine learning for accurate classification.</li>
+          </ul>
+
+          <h2>About the Developer</h2>
+          <p><strong>Tjahyanto Wahyoe</strong>, a passionate machine learning developer from Yogyakarta State University, created this application to bridge the gap between technology and personal style.</p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

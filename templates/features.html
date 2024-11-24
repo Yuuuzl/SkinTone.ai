@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features - SkinTone.ai</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="navbar">
+          <div class="logo">SkinTone.ai</div>
+          <nav>
+            <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('features') }}">Features</a></li>
+              <li><a href="{{ url_for('information') }}">Information</a></li>
+            </ul>
+          </nav>
+          <img class="logo" src="static/img/uny.png" width="50" height="50" />
+        </div>
+      </header>
+
+      <main>
+        <div class="content">
+          <h1>Upload or Take a Photo</h1>
+
+          <!-- Form upload -->
+          <form action="{{ url_for('features') }}" method="POST" enctype="multipart/form-data">
+            <div class="input-container">
+              <!-- Input file untuk unggah gambar -->
+              <input type="file" id="file-input" name="file" accept="image/*" capture="environment" required />
+
+              <!-- Tombol untuk membuka kamera dengan logo kamera -->
+              <button id="open-camera" type="button">
+                <img src="static/img/camera.png" alt="Camera Icon" width="24" height="24" />
+              </button>
+            </div>
+
+            <div id="video-container" class="video-container" style="display: none">
+              <button id="close-camera" class="close-button">&times;</button>
+              <video id="camera-stream" autoplay playsinline></video>
+              <canvas id="camera-canvas" style="display: none"></canvas>
+            </div>
+
+            <button id="capture-photo" style="display: none">Capture Photo</button>
+            <button type="submit">Classify SkinTone</button>
+          </form>
+
+          <!-- Pratinjau gambar -->
+          {% if uploaded_image_data %}
+          <div class="uploaded-image">
+            <h2>Uploaded Image:</h2>
+            <img src="data:image/png;base64,{{ uploaded_image_data }}" alt="Uploaded Image" style="max-width: 100%; height: auto" />
+          </div>
+          {% endif %} {% if result %}
+          <div class="result">
+            <h2>Classification Result:</h2>
+            <p>{{ result }}</p>
+          </div>
+
+          <!-- Kontainer untuk masing-masing kategori -->
+          <!-- Kontainer kategori light -->
+          {%if result == "Light" %}
+          <div id="light-container" class="category-container">
+            <h3>Light Skin Tone</h3>
+            <p>Warna kulit terang cenderung cocok dengan warna lembut dan pastel yang memberikan kesan halus dan elegan.</p>
+            <ul>
+              <li><strong>Warna yang direkomendasikan:</strong> Baby blue, mint green, peach, lavender.</li>
+              <!-- Palet warna untuk Light Skin Tone -->
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #a7c7e7"></div>
+                <!-- Baby Blue -->
+                <div class="color-swatch" style="background-color: #98ff98"></div>
+                <!-- Mint Green -->
+                <div class="color-swatch" style="background-color: #ffdab9"></div>
+                <!-- Peach -->
+                <div class="color-swatch" style="background-color: #e6a8d7"></div>
+                <!-- Lavender -->
+              </div>
+              <li><strong>Efek visual:</strong> Warna pastel dapat menonjolkan kehangatan kulit dan memberikan kesan lembut.</li>
+              <li><strong>Contoh gaya:</strong> Gaun pastel dengan aksesoris emas, blazer mint dengan celana putih.</li>
+            </ul>
+            <p><em>Tip:</em> Hindari warna yang terlalu gelap atau neon karena bisa membuat kulit terlihat pucat.</p>
+          </div>
+
+          {% elif result == "Mid Light" %}
+          <!-- Kontainer kategori mid light -->
+          <div id="mid-light-container" class="category-container">
+            <h3>Mid Light Skin Tone</h3>
+            <p>Warna kulit ini cocok dengan warna cerah yang sedikit lebih kaya dibandingkan pastel, memberikan kesan segar dan penuh energi.</p>
+            <ul>
+              <li><strong>Warna yang direkomendasikan:</strong> Beige, coral, lavender, sky blue.</li>
+
+              <!-- Palet warna untuk Mid Light Skin Tone -->
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #f5f5dc"></div>
+                <!-- Beige -->
+                <div class="color-swatch" style="background-color: #ff7f50"></div>
+                <!-- Coral -->
+                <div class="color-swatch" style="background-color: #e6a8d7"></div>
+                <!-- Lavender -->
+                <div class="color-swatch" style="background-color: #87ceeb"></div>
+                <!-- Sky Blue -->
+              </div>
+              <li><strong>Efek visual:</strong> Warna-warna ini membantu menyeimbangkan undertone kulit dan menambah kecerahan.</li>
+              <li><strong>Contoh gaya:</strong> Atasan coral dengan rok beige, dress lavender untuk acara formal.</li>
+            </ul>
+            <p><em>Tip:</em> Hindari warna kuning pucat atau coklat tua yang dapat membuat kulit terlihat kusam.</p>
+          </div>
+
+          {% elif result == "Mid Dark" %}
+          <!-- Kontainer kategori mid dark -->
+          <div id="mid-dark-container" class="category-container">
+            <h3>Mid Dark Skin Tone</h3>
+            <p>Warna kulit ini sangat cocok dengan warna-warna hangat dan bumi yang memberikan kesan elegan dan mewah.</p>
+            <ul>
+              <li><strong>Warna yang direkomendasikan:</strong> Emerald green, mustard yellow, terracotta, deep teal.</li>
+              <!-- Palet warna untuk Mid Dark Skin Tone -->
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #50c878"></div>
+                <!-- Emerald Green -->
+                <div class="color-swatch" style="background-color: #ffdb58"></div>
+                <!-- Mustard Yellow -->
+                <div class="color-swatch" style="background-color: #e2725b"></div>
+                <!-- Terracotta -->
+                <div class="color-swatch" style="background-color: #004b49"></div>
+                <!-- Deep Teal -->
+              </div>
+              <li><strong>Efek visual:</strong> Warna-warna ini memperkaya tampilan dengan menonjolkan warna kulit yang alami.</li>
+              <li><strong>Contoh gaya:</strong> Sweater mustard dengan jeans gelap, jumpsuit terracotta dengan aksesoris minimalis.</li>
+            </ul>
+            <p><em>Tip:</em> Hindari warna abu-abu terang atau pastel pucat karena bisa membuat kulit tampak tidak bercahaya.</p>
+          </div>
+
+          {% else %}
+          <!-- Kontainer kategori dark -->
+          <div id="dark-container" class="category-container">
+            <h3>Dark Skin Tone</h3>
+            <p>Warna kulit gelap sangat menonjol dengan warna-warna cerah dan bold yang memberikan kontras luar biasa.</p>
+            <ul>
+              <li><strong>Warna yang direkomendasikan:</strong> Royal blue, ruby red, deep purple, gold.</li>
+
+              <!-- Palet warna untuk Dark Skin Tone -->
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #4169e1"></div>
+                <!-- Royal Blue -->
+                <div class="color-swatch" style="background-color: #9b111e"></div>
+                <!-- Ruby Red -->
+                <div class="color-swatch" style="background-color: #6a0dad"></div>
+                <!-- Deep Purple -->
+                <div class="color-swatch" style="background-color: #ffd700"></div>
+                <!-- Gold -->
+              </div>
+              <li><strong>Efek visual:</strong> Warna bold menciptakan tampilan yang berani dan elegan, menonjolkan keindahan warna kulit.</li>
+              <li><strong>Contoh gaya:</strong> Dress royal blue dengan sepatu silver, suit ruby red untuk acara formal.</li>
+            </ul>
+            <p><em>Tip:</em> Hindari warna pastel atau abu-abu terang karena dapat mengurangi kontras dengan kulit.</p>
+          </div>
+          {% endif %} {% endif %}
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+
+<script>
+  // Elemen DOM tambahan untuk pratinjau dan hasil
+  const uploadedImage = document.querySelector('.uploaded-image');
+  const resultContainer = document.querySelector('.result');
+
+  // Fungsi untuk menyembunyikan pratinjau gambar dan hasil
+  function hidePreviewAndResult() {
+    if (uploadedImage) uploadedImage.style.display = 'none';
+    if (resultContainer) resultContainer.style.display = 'none';
+  }
+  // Fungsi untuk menyembunyikan semua kategori
+  function hideAllCategories() {
+    const categories = document.querySelectorAll('.category-container'); // Ambil semua elemen kategori
+    categories.forEach((category) => {
+      category.style.display = 'none'; // Sembunyikan setiap kategori
+    });
+  }
+
+  // Elemen DOM
+  const openCameraButton = document.getElementById('open-camera');
+  const closeCameraButton = document.getElementById('close-camera');
+  const videoContainer = document.getElementById('video-container');
+  const video = document.getElementById('camera-stream');
+  const canvas = document.getElementById('camera-canvas');
+  const captureButton = document.getElementById('capture-photo'); // Tambahkan ini
+  const fileInput = document.getElementById('file-input'); // Ambil elemen file input
+
+  let cameraStream = null;
+
+  // Membuka kamera
+  openCameraButton.addEventListener('click', async () => {
+    hidePreviewAndResult();
+    hideAllCategories(); // Sembunyikan semua kategori
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      cameraStream = stream;
+      video.srcObject = stream;
+      videoContainer.style.display = 'flex'; // Tampilkan kontainer video
+      captureButton.style.display = 'inline-block'; // Tampilkan tombol Capture Photo
+      video.style.display = 'block'; // Pastikan video terlihat
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+      alert('Unable to access camera.');
+    }
+  });
+
+  // Menutup kamera
+  closeCameraButton.addEventListener('click', () => {
+    videoContainer.style.display = 'none'; // Sembunyikan kontainer video
+    if (cameraStream) {
+      const tracks = cameraStream.getTracks();
+      tracks.forEach((track) => track.stop()); // Matikan semua track kamera
+      cameraStream = null;
+    }
+  });
+
+  // Menutup kamera
+  closeCameraButton.addEventListener('click', () => {
+    videoContainer.style.display = 'none'; // Sembunyikan kontainer video
+    captureButton.style.display = 'none'; // Sembunyikan tombol Capture Photo
+    if (cameraStream) {
+      const tracks = cameraStream.getTracks();
+      tracks.forEach((track) => track.stop()); // Matikan semua track kamera
+      cameraStream = null;
+    }
+  });
+
+  // Menangkap gambar dari video
+  captureButton.addEventListener('click', () => {
+    const context = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    canvas.style.display = 'block';
+
+    // Mengubah gambar jadi file dan mengisi input file untuk form
+    canvas.toBlob((blob) => {
+      const file = new File([blob], 'captured.png', { type: 'image/png' });
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      fileInput.files = dataTransfer.files;
+    });
+
+    // Sembunyikan stream video setelah menangkap gambar
+    video.style.display = 'none';
+    captureButton.style.display = 'none';
+  });
+
+  // Menangani perubahan pada input file
+  fileInput.addEventListener('change', () => {
+    hidePreviewAndResult();
+    hideAllCategories(); // Sembunyikan semua kategori // Sembunyikan pratinjau dan hasil saat file diunggah
+  });
+  // Logika untuk menampilkan kontainer berdasarkan kategori
+  document.addEventListener('DOMContentLoaded', () => {
+    const result = '{{ result }}'; // Hasil klasifikasi
+    const lightContainer = document.getElementById('light-container');
+    const midLightContainer = document.getElementById('mid-light-container');
+    const midDarkContainer = document.getElementById('mid-dark-container');
+    const darkContainer = document.getElementById('dark-container');
+    const button = document.getElementById('classify');
+
+    console.log(result);
+
+    button.addEventListener('click', function () {
+      // Tampilkan kontainer berdasarkan hasil klasifikasi
+      if (result === 'Light') {
+        lightContainer.style.display = 'block';
+      } else if (result === 'Mid Light') {
+        midLightContainer.style.display = 'block';
+      } else if (result === 'Mid Dark') {
+        midDarkContainer.style.display = 'block';
+      } else if (result === 'Dark') {
+        darkContainer.style.display = 'block';
+      }
+    });
+  });
+</script>

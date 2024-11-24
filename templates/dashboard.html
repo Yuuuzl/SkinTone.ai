@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI to Classify Website Screenshots</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="navbar">
+          <div class="logo">SkinTone.ai</div>
+          <nav>
+            <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('features') }}">Features</a></li>
+              <li><a href="{{ url_for('information') }}">Information</a></li>
+            </ul>
+          </nav>
+          <img class="logo" src="static/img/uny.png" width="50" height="50" />
+        </div>
+      </header>
+
+      <main>
+        <div class="content">
+          <h1>Using AI To Classify Human SkinTone</h1>
+          <p class="subtitle">Written in Python, using the deep learning libraries of Keras on top of TensorFlow.</p>
+          <div class="author-info">
+            <span class="author">Tjahyanto Wahyoe</span>
+            <span class="date">November 24, 2024</span>
+            <span class="read-time">Yogyakarta State University </span>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

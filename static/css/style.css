@@ -1,0 +1,264 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0; /* Hilangkan margin default */
+  padding-top: 70px; /* Sesuaikan dengan tinggi navbar */
+}
+
+/* Header */
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Membuat navbar tetap di posisi atas */
+  top: 0; /* Menempel di bagian atas halaman */
+
+  width: 100%; /* Lebar penuh untuk navbar */
+  z-index: 1000; /* Memastikan navbar berada di atas konten lainnya */
+  box-sizing: border-box; /* Memastikan padding tidak memengaruhi ukuran elemen */
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Jarak antar elemen sama besar */
+  align-items: center; /* Selaraskan secara vertikal */
+  padding: 10px 20px; /* Atas/bawah 10px, kiri/kanan 20px */
+  box-sizing: border-box;
+}
+
+nav {
+  position: absolute; /* Buat nav melayang */
+  left: 50%; /* Tempatkan di tengah */
+  transform: translateX(-50%); /* Sesuaikan untuk benar-benar di tengah */
+}
+
+/* Logo kiri */
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000066;
+}
+
+/* Navigation menu */
+.navbar nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar nav ul li {
+  margin: 0 15px; /* Memberikan jarak horizontal antar item */
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: color 0.3s ease; /* Efek hover */
+}
+
+.navbar nav ul li a:hover {
+  color: #000066; /* Warna saat hover */
+}
+
+/* Logo kanan */
+.navbar img.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover; /* Menyesuaikan gambar agar terlihat baik */
+}
+
+/* Main Content */
+main {
+  text-align: center;
+  margin: 50px auto;
+}
+
+main h1 {
+  font-size: 32px;
+  color: #000066;
+  margin-bottom: 10px;
+}
+
+main .subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.author-info {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+form {
+  margin-top: 20px;
+}
+
+input[type='file'] {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #000066;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #333399;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.uploaded-image img {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Agar muncul di atas konten lainnya */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Latar belakang semi transparan */
+  z-index: 999;
+  padding: 15px;
+}
+
+video {
+  max-width: 90%; /* Responsif */
+  max-height: 80%;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  color: red;
+}
+.category-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.category-container h3 {
+  margin: 0 0 10px;
+  color: #333399;
+}
+.category-container p {
+  margin: 0;
+  color: #555;
+}
+
+.color-palette {
+  width: 100%; /* Lebar kontainer bisa diatur sesuai kebutuhan */
+  display: flex;
+  justify-content: center; /* Menyusun item di tengah secara horizontal */
+  margin-top: 20px;
+  padding-bottom: 15px;
+}
+
+.color-swatch {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 5px; /* Menambahkan margin antar swatch agar lebih teratur */
+}
+/* Styling untuk form dan tombol */
+form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Memberikan jarak antara input file dan tombol */
+}
+
+/* Styling untuk kontainer input dan tombol */
+.input-container {
+  display: flex;
+  align-items: center;
+  
+}
+
+#open-camera {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#open-camera img {
+  width: 24px;
+  height: 24px;
+}
+
+
+.video-container {
+  position: relative;
+  display: inline-block;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
