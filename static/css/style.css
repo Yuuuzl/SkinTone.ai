@@ -16,7 +16,7 @@ header {
   width: 100%; /* Lebar penuh untuk navbar */
   z-index: 1000; /* Memastikan navbar berada di atas konten lainnya */
   box-sizing: border-box; /* Memastikan padding tidak memengaruhi ukuran elemen */
-}
+}   
 
 /* Navbar */
 .navbar {
@@ -38,7 +38,7 @@ nav {
 .navbar .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #000066;
+  color: #845a4d;
 }
 
 /* Navigation menu */
@@ -66,8 +66,8 @@ nav {
 
 /* Logo kanan */
 .navbar img.logo {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   object-fit: cover; /* Menyesuaikan gambar agar terlihat baik */
 }
 
@@ -79,7 +79,7 @@ main {
 
 main h1 {
   font-size: 32px;
-  color: #000066;
+  color: #433830;
   margin-bottom: 10px;
 }
 
@@ -105,7 +105,7 @@ input[type='file'] {
 }
 
 button {
-  background-color: #000066;
+  background-color: #433830;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -114,7 +114,7 @@ button {
 }
 
 button:hover {
-  background-color: #333399;
+  background-color: #b38f7a;
 }
 
 .result {
@@ -140,7 +140,7 @@ form {
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #845a4d;
   color: white;
   border: none;
   border-radius: 5px;
@@ -149,7 +149,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #b38f7a;
 }
 
 .video-container {
@@ -186,7 +186,7 @@ video {
 }
 
 .close-button:hover {
-  color: red;
+  color: white;
 }
 .category-container {
   margin-top: 20px;
@@ -198,7 +198,7 @@ video {
 }
 .category-container h3 {
   margin: 0 0 10px;
-  color: #333399;
+  color: #433830;
 }
 .category-container p {
   margin: 0;
@@ -256,9 +256,11 @@ form {
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #433830;
   color: white;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  margin-right:400px ;
+  margin-top: 10px;
 }
